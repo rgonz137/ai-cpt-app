@@ -3,7 +3,15 @@ import numpy as np
 import joblib
 
 # ===== LOAD MODEL FILES =====
-model = joblib.load("model.pkl")
+# TEMP DEMO MODEL (so deployment works)
+import numpy as np
+
+class DummyModel:
+    def predict_proba(self, X):
+        # fake probabilities for demo
+        return np.array([[0.2, 0.8, 0.6]])
+
+model = DummyModel()
 vectorizer = joblib.load("vectorizer.pkl")
 cpt_encoder = joblib.load("cpt_encoder.pkl")
 
